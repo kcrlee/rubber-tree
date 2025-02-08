@@ -1,12 +1,12 @@
-local rubber = require("rubber.tree")
-
 local M = {}
 
-M.setup = function(opts)
-	opts = opts or {}
-	rubber.setup(opts)
+M.setup = function()
+	if not M.cwd then
+		M.cwd = vim.fn.getcwd() -- Ensure cwd is set when opening
+	end
 
-	vim.api.nvim_create_user_command("RubberTreeToggle", rubber.toggle, {})
+	-- Ensure the rest of the function works
+	print("Current directory: " .. M.cwd) -- Debugging
 end
 
 return M
