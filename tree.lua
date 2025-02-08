@@ -1,4 +1,4 @@
-local renderer = require("myfiletree.renderer")
+local renderer = require("rubber.renderer")
 
 local M = {}
 
@@ -26,7 +26,7 @@ M.open = function()
 	renderer.render_tree(M.tree_buf, M.cwd)
 
 	-- Set up buffer-local keymaps
-	require("myfiletree.keymaps").setup(M.tree_buf)
+	require("rubber.keymaps").setup(M.tree_buf)
 
 	-- Detect save (`:w`) to sync changes
 	vim.api.nvim_create_autocmd("BufWritePost", {
